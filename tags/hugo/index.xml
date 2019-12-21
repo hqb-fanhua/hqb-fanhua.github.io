@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on 繁华烟落</title>
+    <link>https://hqb-fanhua.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on 繁华烟落</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 13 Mar 2019 23:23:34 +0800</lastBuildDate>
+    
+	<atom:link href="https://hqb-fanhua.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hugo搭建心得</title>
+      <link>https://hqb-fanhua.github.io/posts/1/</link>
+      <pubDate>Wed, 13 Mar 2019 23:23:34 +0800</pubDate>
+      
+      <guid>https://hqb-fanhua.github.io/posts/1/</guid>
+      <description>待填内容：Hugo的搭建过程</description>
+    </item>
+    
+  </channel>
+</rss>
