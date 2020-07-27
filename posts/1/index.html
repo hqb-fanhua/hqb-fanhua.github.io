@@ -47,13 +47,84 @@
                 <div class="stuff">
                     
                     <span>March 13, 2019</span>
-                    <span>字数 14</span>
+                    <span>字数 851</span>
                     
                     
                 </div>
                 <div class="content">
-                    <p>待填内容：Hugo的搭建过程</p>
-
+                    <h4 id="windowshugo">Windows环境下Hugo博客的搭建</h4>
+<blockquote>
+<p>Hugo博客的搭建参考B站Up主CodeSheep<a href="https://www.bilibili.com/video/av51574688">视频教程</a></p>
+<p>Hugo官网的中文教程<a href="https://www.gohugo.org/">中文文档</a></p>
+<p>Hugo官网<a href="%5Bhttps://gohugo.io%5D(https://gohugo.io/)">Hugo</a></p>
+</blockquote>
+<p><strong>搭建过程</strong></p>
+<blockquote>
+<p>注册GitHub账号</p>
+</blockquote>
+<p>​	注册GitHub账号可以使用GitHub的远程仓库来部署项目，部署成功后可以进行网络的访问</p>
+<p>​	GitHub的官网链接<a href="https://github.com">链接</a></p>
+<blockquote>
+<p>安装Git管理工具</p>
+</blockquote>
+<p>​	我们将项目部署到github的时候需要git管理工具，使用git可以将创建好的博客文章推送到GitHub远端服务器。</p>
+<p>​	Git管理工具需要下载安装<a href="https://git-scm.com/download/win">下载地址</a>,下载64位系统，直接一路点击下一步快速安装。</p>
+<p><img src="D:%5Chugo%5Cmyblog%5Cthemes%5Cdiaspora%5Cimages%5Cgit.jpg" alt=""></p>
+<blockquote>
+<p>下载Hugo项目到本地</p>
+</blockquote>
+<p>​	 在GitHub的仓库中下载Hugo项目到本地电脑，直接下载64位，<a href="https://github.com/gohugoio/hugo/releases">下载链接</a></p>
+<p>​	 <img src="D:%5Chugo%5Cmyblog%5Cthemes%5Cdiaspora%5Cimages%5Chugo.JPG" alt=""></p>
+<p>​	 下载后进行解压，可以解压到任意的盘上，会得到两个文件和一个运行程序。</p>
+<p>​	 <img src="D:%5Chugo%5Cmyblog%5Cthemes%5Cdiaspora%5Cimages%5Chugo1.JPG" alt=""></p>
+<p>​	 需要将路径添加到path环境变量中，方便操作。添加步骤为右击我的电脑&mdash;&gt;属性&mdash;-&gt;高级系统设置&mdash;&gt;环境变量&mdash;&gt;path。我的解压为D:\hugo\bin,则将此路径添加到path。需要注意的是添加路径的格式为  ;D:\hugo\bin</p>
+<ol start="4">
+<li>
+<p>创建Hugo的站点</p>
+<p>使用Win+R,输入cmd打开命令行，使用hugo的命令查看是否成功安装</p>
+<pre><code>hugo version
+</code></pre><p>安装成功会显示相应的版本。</p>
+<p>在指定文件下创建站点文件</p>
+<pre><code>hugo new site myblog
+</code></pre></li>
+<li>
+<p>下载Hugo主题</p>
+<p>在主题网站下载一个主题。<a href="https://themes.gohugo.io/">主题网站</a></p>
+<p>切换到相应的博客站点路径，例如我刚才创建的是myblog，需要使用cd命令切换到站点内。</p>
+<pre><code>cd [创建的站点目录]
+</code></pre><p><img src="D:%5Chugo%5Cmyblog%5Cpublic%5Cimg%5Ctheme.png" alt=""></p>
+</li>
+<li>
+<p>启动博客本地预览</p>
+<p>使用命令启动博客进行预览</p>
+<pre><code>hugo server -t m10c --buildDrafts
+</code></pre><p>浏览器输入localhost:8080打开博客</p>
+</li>
+<li>
+<p>创建Hugo博客文章</p>
+<p>使用命令创建文章</p>
+<pre><code>hugo new post/blog.md
+</code></pre><p>在content文件夹下使用命令</p>
+</li>
+<li>
+<p>部署到远程仓库</p>
+<p>需要使用github仓库来搭建远程仓库</p>
+<p><img src="D:%5Chugo%5Cmyblog%5Cpublic%5Cimg%5Cgithub.png" alt=""></p>
+<p>使用命令关联远程仓库</p>
+<pre><code>hugo --theme=m10c --baseUrl=&quot;https://hqb-fanhua.github.io&quot; --buildDrafts
+</code></pre><p>成功后目录下会生成public文件夹</p>
+</li>
+<li>
+<p>发布博客</p>
+</li>
+</ol>
+<p>​    在public文件夹下使用命令将文章推送到远程仓库。</p>
+<pre><code>git init
+git add .
+git commit -m &quot;第一次博客内容提交&quot;
+git remote add origin http://github.com/hqb-fanhua/hqb-fanhua.github.io.git
+git push -u origin master
+</code></pre>
                     
                     <audio id="audio" loop="1" preload="auto" style="width: 100%;" controls="controls">
                         <source type="audio/mpeg" src="">
@@ -74,6 +145,8 @@
                     <a href="javascript: window.scrollTo(0, 0);">
                     返回顶部</a>
                     
+                        <a href="https://hqb-fanhua.github.io/posts/JavaIO%E6%B5%81/" rel="prev">上一篇</a>
+                    
                     
                         <a href="https://hqb-fanhua.github.io/posts/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%B4%E9%83%A8%E5%86%85%E5%AE%B9/" rel="next">下一篇</a>
                     
@@ -86,17 +159,71 @@
                     
                     <li>
                         <div>
-                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%B4%E9%83%A8%E5%86%85%E5%AE%B9/" title="千里之行始于足下">
-                            千里之行始于足下</a>
-                            <p>记录下学习的点点滴滴...</p>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            Java比较器</a>
+                            <p>Java比较器 Java会经常涉及对象数组的排序问题，就会涉及到对象之间的比较问题。 Java实现对象排...</p>
                         </div>
                         
-                        <a href="https://hqb-fanhua.github.io/posts/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%B4%E9%83%A8%E5%86%85%E5%AE%B9/" title="千里之行始于足下">
-                            <img class="relateimg" src="/img/44.jpg" alt="千里之行始于足下">
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            <img class="relateimg" src="/img/4.jpg" alt="Java比较器">
                         </a>
                     </li>
                     
                 
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            Java8新特性</a>
+                            <p>Java8特性 Lambda表达式 Lambda 是一个匿名函数，我们可以把 Lambda 表达式理解为是一段可以 传递的代码（将代...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            <img class="relateimg" src="/img/2.jpg" alt="Java8新特性">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/" title="Java反射">
+                            Java反射</a>
+                            <p>Java反射机制 反射机制概述 Reflection（反射）是被视为动态语言的关键，反射机制允许程序在执...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/" title="Java反射">
+                            <img class="relateimg" src="/img/5.jpg" alt="Java反射">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E9%9B%86%E5%90%88/" title="Java集合">
+                            Java集合</a>
+                            <p>Java集合框架概述 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象 的操作，就要对对象进...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E9%9B%86%E5%90%88/" title="Java集合">
+                            <img class="relateimg" src="/img/6.jpg" alt="Java集合">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            MYSQL语句</a>
+                            <p>MYSQL语句 创建数据 create database [数据库] default charset utf8; 查看数据库 show database; 删除数据库 drop database [数据库]; 查看表 show tables; 创建表 create...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            <img class="relateimg" src="/img/8.jpg" alt="MYSQL语句">
+                        </a>
+                    </li>
                     
                 
             

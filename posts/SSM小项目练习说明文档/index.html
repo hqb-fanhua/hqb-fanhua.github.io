@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate">
+  <title>SSM小项目练习 &middot; 繁华烟落</title>
+  <meta name="keywords" content="素锦, inspiration, customization, rainmeter, design, web, 壁纸, 设计, 收集, wallpaper, collection, jaku, icon">
+  <meta name="description" content="世界上每个角落都有人过着相似的人生">
+  <meta name="author" content="繁华">
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="/css/diaspora.css">
+  <link rel="stylesheet" href="/css/insight.css">
+  <link rel="stylesheet" href="/css/custom.css">
+</head><body class="loading">
+        <div id="loading"></div>
+				<div id="nav"></div>
+				<div class="nav-user"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+        <div class="bar">
+        </div>
+        <a class="icon-icon" href="javascript:history.back()">
+        </a>
+        <div title="播放/暂停" class="icon-play">
+        </div>
+        
+        <h3 class="subtitle" style="display: none;">
+        SSM小项目练习</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                </div>
+                <div id="qr"></div>
+            </div>
+        </div>
+        <div class="scrollbar" style="width: 1.1636%;"></div>
+    </div>
+    <div class="section">
+        <div class="article">
+            <div>
+                <h1 class="title">
+                SSM小项目练习</h1>
+                <div class="stuff">
+                    
+                    <span>April 11, 2019</span>
+                    <span>字数 627</span>
+                    
+                    
+                </div>
+                <div class="content">
+                    <h3 id="ssm">SSM小项目练习</h3>
+<h4 id="heading">功能介绍</h4>
+<h5 id="1">1.商品查询</h5>
+<h5 id="2">2.商品添加</h5>
+<h5 id="3">3.订单查询</h5>
+<h5 id="4">4.订单分页查询</h5>
+<h5 id="5">5.订单详情查询</h5>
+<h5 id="6">6.用户管理</h5>
+<h5 id="7">7.角色管理</h5>
+<h5 id="8">8.资源权限管理</h5>
+<h5 id="9">9.权限关联控制</h5>
+<h5 id="10aop">10.AOP日志处理</h5>
+<h4 id="heading-1">数据库表设计</h4>
+<h5 id="1-1">1.产品表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键id</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">productNum</td>
+<td align="center">varchar(50)</td>
+<td align="center">产品编号</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">productName</td>
+<td align="center">varchar(50)</td>
+<td align="center">产品名称</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">cityName</td>
+<td align="center">varchar(250)</td>
+<td align="center">出发城市</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">DepartureTime</td>
+<td align="center">timestamp</td>
+<td align="center">出发时间</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">productPrice</td>
+<td align="center">number</td>
+<td align="center">产品价格</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">productDesc</td>
+<td align="center">varchar(500)</td>
+<td align="center">产品描述</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">productStatus</td>
+<td align="center">int</td>
+<td align="center">状态(0 关闭 1 开启)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="2-1">2.订单表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键id</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">orderNum</td>
+<td align="center">varchar(50)</td>
+<td align="center">订单编号</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">orderTime</td>
+<td align="center">timestamp</td>
+<td align="center">下单时间</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">peopleCount</td>
+<td align="center">int</td>
+<td align="center">出行人数</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">orderDesc</td>
+<td align="center">varchar(500)</td>
+<td align="center">订单描述</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">payType</td>
+<td align="center">int</td>
+<td align="center">支付方式(0 支付宝 1 微信 2 其他)</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">orderStatus</td>
+<td align="center">int</td>
+<td align="center">订单状态(0 未支付 1 已支付)</td>
+</tr>
+<tr>
+<td align="center">8</td>
+<td align="center">productid</td>
+<td align="center">int</td>
+<td align="center">产品id(外键)</td>
+</tr>
+<tr>
+<td align="center">9</td>
+<td align="center">memberid</td>
+<td align="center">int</td>
+<td align="center">会员id(外键)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="3-1">3.会员表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键id</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">name</td>
+<td align="center">varchar(20)</td>
+<td align="center">姓名</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">nickName</td>
+<td align="center">varchar(20)</td>
+<td align="center">昵称</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">phoneNum</td>
+<td align="center">varchar(20)</td>
+<td align="center">电话号码</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">email</td>
+<td align="center">varchar(50)</td>
+<td align="center">邮箱</td>
+</tr>
+</tbody>
+</table>
+<h5 id="4-1">4.旅客表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键id</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">name</td>
+<td align="center">varchar(20)</td>
+<td align="center">姓名</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">sex</td>
+<td align="center">varchar(20)</td>
+<td align="center">性别</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">phoneNum</td>
+<td align="center">varchar(20)</td>
+<td align="center">电话号码</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">credentialsType</td>
+<td align="center">int</td>
+<td align="center">证件类型 0 身份证 1护照 2 军官证</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">credentialsNum</td>
+<td align="center">varchar(50)</td>
+<td align="center">证件号码</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">travellerType</td>
+<td align="center">int</td>
+<td align="center">旅客类型(0 成人 1 儿童)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="5-1">5.用户表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键id</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">email</td>
+<td align="center">varchar(32)</td>
+<td align="center">邮箱</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">username</td>
+<td align="center">varchar(32)</td>
+<td align="center">用户名</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">password</td>
+<td align="center">varchar(32)</td>
+<td align="center">密码</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">phoneNum</td>
+<td align="center">varchar(32)</td>
+<td align="center">电话号码</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">status</td>
+<td align="center">int</td>
+<td align="center">状态(0 未开启 1 开启)</td>
+</tr>
+</tbody>
+</table>
+<h5 id="6-1">6.角色表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键id</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">roleName</td>
+<td align="center">varchar(32)</td>
+<td align="center">角色名</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">roleDesc</td>
+<td align="center">varchar(32)</td>
+<td align="center">角色描述</td>
+</tr>
+</tbody>
+</table>
+<h5 id="7-1">7.资源权限表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键id</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">permissionName</td>
+<td align="center">timestamp</td>
+<td align="center">权限名</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">url</td>
+<td align="center">varchar(32)</td>
+<td align="center">资源路径</td>
+</tr>
+</tbody>
+</table>
+<h5 id="8-1">8.日志表</h5>
+<table>
+<thead>
+<tr>
+<th align="center">序号</th>
+<th align="center">字段名称</th>
+<th align="center">字段类型</th>
+<th align="center">字段描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">1</td>
+<td align="center">id</td>
+<td align="center">varchar(32)</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">2</td>
+<td align="center">visitTime</td>
+<td align="center">timestamp</td>
+<td align="center">访问时间</td>
+</tr>
+<tr>
+<td align="center">3</td>
+<td align="center">username</td>
+<td align="center">varchar(32)</td>
+<td align="center">操作者用户名</td>
+</tr>
+<tr>
+<td align="center">4</td>
+<td align="center">ip</td>
+<td align="center">varchar(32)</td>
+<td align="center">访问ip</td>
+</tr>
+<tr>
+<td align="center">5</td>
+<td align="center">url</td>
+<td align="center">varchar(32)</td>
+<td align="center">访问资源地址</td>
+</tr>
+<tr>
+<td align="center">6</td>
+<td align="center">executionTime</td>
+<td align="center">int</td>
+<td align="center">执行时长</td>
+</tr>
+<tr>
+<td align="center">7</td>
+<td align="center">method</td>
+<td align="center">varchar(32)</td>
+<td align="center">执行方法</td>
+</tr>
+</tbody>
+</table>
+
+                    
+                    <audio id="audio" loop="1" preload="auto" style="width: 100%;" controls="controls">
+                        <source type="audio/mpeg" src="">
+                        <a href=""></a>
+                    </audio>
+                </div>
+                <div class="comment-wrap">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relate">
+        <ul>
+            <h3 id="prev_next">
+                <em>相 关 文 章</em>
+                <span>
+                    <a href="javascript: window.scrollTo(0, 0);">
+                    返回顶部</a>
+                    
+                        <a href="https://hqb-fanhua.github.io/posts/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%B4%E9%83%A8%E5%86%85%E5%AE%B9/" rel="prev">上一篇</a>
+                    
+                    
+                        <a href="https://hqb-fanhua.github.io/posts/SpringBoot%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/" rel="next">下一篇</a>
+                    
+                </span>
+            </h3>
+            
+            
+            
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            Java比较器</a>
+                            <p>Java比较器 Java会经常涉及对象数组的排序问题，就会涉及到对象之间的比较问题。 Java实现对象排...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            <img class="relateimg" src="/img/4.jpg" alt="Java比较器">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            Java8新特性</a>
+                            <p>Java8特性 Lambda表达式 Lambda 是一个匿名函数，我们可以把 Lambda 表达式理解为是一段可以 传递的代码（将代...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            <img class="relateimg" src="/img/2.jpg" alt="Java8新特性">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/" title="Java反射">
+                            Java反射</a>
+                            <p>Java反射机制 反射机制概述 Reflection（反射）是被视为动态语言的关键，反射机制允许程序在执...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/" title="Java反射">
+                            <img class="relateimg" src="/img/5.jpg" alt="Java反射">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E9%9B%86%E5%90%88/" title="Java集合">
+                            Java集合</a>
+                            <p>Java集合框架概述 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象 的操作，就要对对象进...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E9%9B%86%E5%90%88/" title="Java集合">
+                            <img class="relateimg" src="/img/6.jpg" alt="Java集合">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            MYSQL语句</a>
+                            <p>MYSQL语句 创建数据 create database [数据库] default charset utf8; 查看数据库 show database; 删除数据库 drop database [数据库]; 查看表 show tables; 创建表 create...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            <img class="relateimg" src="/img/8.jpg" alt="MYSQL语句">
+                        </a>
+                    </li>
+                    
+                
+            
+        </ul>
+    </div>
+</div>
+<p style="text-align: center;">
+  <a style="color: inherit" target="_blank" href="https://github.com/honjun/hugo-theme-diaspora"></a>
+</p>
+
+<script>
+  var siteTitle = "繁华烟落";
+</script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/InsightSearch.js"></script>
+</body>
+</html>
+

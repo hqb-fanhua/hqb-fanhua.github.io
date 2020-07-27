@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate">
+  <title>Java反射 &middot; 繁华烟落</title>
+  <meta name="keywords" content="素锦, inspiration, customization, rainmeter, design, web, 壁纸, 设计, 收集, wallpaper, collection, jaku, icon">
+  <meta name="description" content="世界上每个角落都有人过着相似的人生">
+  <meta name="author" content="繁华">
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="/css/diaspora.css">
+  <link rel="stylesheet" href="/css/insight.css">
+  <link rel="stylesheet" href="/css/custom.css">
+</head><body class="loading">
+        <div id="loading"></div>
+				<div id="nav"></div>
+				<div class="nav-user"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+        <div class="bar">
+        </div>
+        <a class="icon-icon" href="javascript:history.back()">
+        </a>
+        <div title="播放/暂停" class="icon-play">
+        </div>
+        
+        <h3 class="subtitle" style="display: none;">
+        Java反射</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                </div>
+                <div id="qr"></div>
+            </div>
+        </div>
+        <div class="scrollbar" style="width: 1.1636%;"></div>
+    </div>
+    <div class="section">
+        <div class="article">
+            <div>
+                <h1 class="title">
+                Java反射</h1>
+                <div class="stuff">
+                    
+                    <span>April 11, 2019</span>
+                    <span>字数 2159</span>
+                    
+                    
+                </div>
+                <div class="content">
+                    <h4 id="java">Java反射机制</h4>
+<h5 id="heading">反射机制概述</h5>
+<ul>
+<li>Reflection（反射）是被视为动态语言的关键，反射机制允许程序在执行期 借助于Reflection API取得任何类的内部信息，并能直接操作任意对象的内 部属性及方法。</li>
+<li>加载完类之后，在堆内存的方法区中就产生了一个Class类型的对象（一个 类只有一个Class对象），这个对象就包含了完整的类的结构信息。我们可 以通过这个对象看到类的结构。这个对象就像一面镜子，透过这个镜子看 到类的结构，所以，我们形象的称之为：反射。</li>
+</ul>
+<h5 id="java-1">Java反射机制提供的功能</h5>
+<ul>
+<li>在运行时判断任意一个对象所属的类</li>
+<li>在运行时构造任意一个类的对象</li>
+<li>在运行时判断任意一个类所具有的成员变量和方法</li>
+<li>在运行时获取泛型信息</li>
+<li>在运行时调用任意一个对象的成员变量和方法</li>
+<li>在运行时处理注解</li>
+<li>生成动态代理</li>
+</ul>
+<h5 id="class">Class类</h5>
+<ul>
+<li>Class本身也是一个类</li>
+<li>Class 对象只能由系统建立对象</li>
+<li>一个加载的类在 JVM 中只会有一个Class实例</li>
+<li>一个Class对象对应的是一个加载到JVM中的一个.class文件</li>
+<li>每个类的实例都会记得自己是由哪个 Class 实例所生成</li>
+<li>通过Class可以完整地得到一个类中的所有被加载的结构</li>
+<li>Class类是Reflection的根源，针对任何你想动态加载、运行的类，唯有先获得相应的 Class对象</li>
+</ul>
+<p>获取Class实例的方式</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">	<span style="color:#a6e22e">@Test</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception <span style="color:#f92672">{</span>
+		<span style="color:#75715e">//方式一:调用运行时类的属性.class
+</span><span style="color:#75715e"></span>		Class<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> clazz1 <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//方式二:通过运行时类的对象,调用getClass()方法
+</span><span style="color:#75715e"></span>		Person p <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		Class clazz2 <span style="color:#f92672">=</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">getClass</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz2<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//方式三:调用Class的静态方法forName()
+</span><span style="color:#75715e"></span>		Class forName <span style="color:#f92672">=</span> Class<span style="color:#f92672">.</span><span style="color:#a6e22e">forName</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;day10.Person&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>forName<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//使用方式四:类的加载器ClassLoader
+</span><span style="color:#75715e"></span>		ClassLoader loader <span style="color:#f92672">=</span> ClassTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		Class clazz4 <span style="color:#f92672">=</span> loader<span style="color:#f92672">.</span><span style="color:#a6e22e">loadClass</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;day10.Person&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>clazz4<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+ <span style="color:#f92672">}</span>
+</code></pre></div><p>哪些类型可以有Class对象</p>
+<p>（1）class： 外部类，成员(成员内部类，静态内部类)，局部内部类，匿名内部类</p>
+<p>（2）interface：接口</p>
+<p>（3）[]：数组</p>
+<p>（4）enum：枚举</p>
+<p>（5）annotation：注解@interface</p>
+<p>（6）primitive type：基本数据类型</p>
+<p>（7）void</p>
+<h5 id="classloader">ClassLoader类加载器的理解</h5>
+<ul>
+<li>加载：将class文件字节码内容加载到内存中，并将这些静态数据转换成方法区的运行时 数据结构，然后生成一个代表这个类的java.lang.Class对象，作为方法区中类数据的访问 入口（即引用地址）。所有需要访问和使用类数据只能通过这个Class对象。这个加载的 过程需要类加载器参与。</li>
+<li>类加载的作用：将class文件字节码内容加载到内存中，并将这些静态数据转换成方 法区的运行时数据结构，然后在堆中生成一个代表这个类的java.lang.Class对象，作为 方法区中类数据的访问入口。</li>
+<li>类缓存：标准的JavaSE类加载器可以按要求查找类，但一旦某个类被加载到类加载器 中，它将维持加载（缓存）一段时间。不过JVM垃圾回收机制可以回收这些Class对象。</li>
+</ul>
+<p>JVM定义了四种类型的类加载器</p>
+<ul>
+<li>引导类加载器：用C++编写的，是JVM自带的类 加载器，负责Java平台核心库，用来装载核心类 库。该加载器无法直接获取</li>
+<li>扩展类加载器：负责jre/lib/ext目录下的jar包或 – D java.ext.dirs 指定目录下的jar包装入工作库</li>
+<li>系统类加载器：负责java –classpath 或 –D java.class.path所指的目录下的类与jar包装入工 作 ，是最常用的加载器</li>
+<li>自定义类加载器</li>
+</ul>
+<p>使用ClassLoader加载配置文件</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> IOException <span style="color:#f92672">{</span>
+		Properties pos <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//方式一
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">//FileInputStream fis = new FileInputStream(&#34;jdbc.properties&#34;);
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">//pos.load(fis);
+</span><span style="color:#75715e"></span>		
+		<span style="color:#75715e">//方式二,默认的文件位置在src下
+</span><span style="color:#75715e"></span>		ClassLoader classLoader <span style="color:#f92672">=</span> ClassTest<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">.</span><span style="color:#a6e22e">getClassLoader</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		InputStream is <span style="color:#f92672">=</span> classLoader<span style="color:#f92672">.</span><span style="color:#a6e22e">getResourceAsStream</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.properties&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		pos<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span>is<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		String user <span style="color:#f92672">=</span> pos<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		String password <span style="color:#f92672">=</span> pos<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;password&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user=&#34;</span><span style="color:#f92672">+</span>user<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;\npassword&#34;</span><span style="color:#f92672">+</span>password<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="heading-1">创建运行时类的对象</h5>
+<ul>
+<li>
+<p>创建类的对象：调用Class对象的newInstance()方法</p>
+<blockquote>
+<p>类必须有一个无参数的构造器。</p>
+<p>类的构造器的访问权限需要足够。</p>
+</blockquote>
+</li>
+<li>
+<p>在操作的时候明确的调用类中的构造器，并将参数传递进去之后，才可以实例化操作。</p>
+<blockquote>
+<p>通过Class类的getDeclaredConstructor(Class … parameterTypes)取得本类的指定形参类 型的构造器</p>
+<p>向构造器的形参中传递一个对象数组进去，里面包含了构造器中所需的各个参数。</p>
+<p>通过Constructor实例化对象。</p>
+</blockquote>
+</li>
+</ul>
+<p>使用代码创建运行时类的对象</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test3</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#66d9ef">throws</span> Exception<span style="color:#f92672">{</span>
+		Class<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+		<span style="color:#75715e">//使用newInstance()方法
+</span><span style="color:#75715e"></span>		Person p <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">newInstance</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>p<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="heading-2">获取运行时类的结构</h5>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		Class<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//获取属性结构
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">//getFields():获取当前运行时类及其父类中声明为public权限的属性
+</span><span style="color:#75715e"></span>		Field<span style="color:#f92672">[</span><span style="color:#f92672">]</span> fields <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getFields</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Field f<span style="color:#f92672">:</span>fields<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>f<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//getDeclaredFields():获取当前运行时类所有的属性
+</span><span style="color:#75715e"></span>		Field<span style="color:#f92672">[</span><span style="color:#f92672">]</span> declaredFields <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredFields</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span><span style="color:#f92672">(</span>Field f<span style="color:#f92672">:</span>declaredFields<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			
+			<span style="color:#75715e">//getModifiers():以整数形式返回此Field的修饰符
+</span><span style="color:#75715e"></span>			<span style="color:#66d9ef">int</span> modifiers <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span><span style="color:#a6e22e">getModifiers</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#75715e">//getType():得到Field的属性类型
+</span><span style="color:#75715e"></span>			Class  type <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span><span style="color:#a6e22e">getType</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#75715e">//getName():返回Field的名称。
+</span><span style="color:#75715e"></span>			String name <span style="color:#f92672">=</span> f<span style="color:#f92672">.</span><span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>type<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>name<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>modifiers<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>f<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>获取当前类的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#a6e22e">@Test</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test2</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		Class<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> clazz <span style="color:#f92672">=</span> Person<span style="color:#f92672">.</span><span style="color:#a6e22e">class</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//getMethods():获取当前运行时类及其父类中声明为public的方法
+</span><span style="color:#75715e"></span>		Method<span style="color:#f92672">[</span><span style="color:#f92672">]</span> methods <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getMethods</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Method method <span style="color:#f92672">:</span> methods<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>method<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//getDeclaredMethods():获取当前运行类中所有的方法（不包含父类）
+</span><span style="color:#75715e"></span>		Method<span style="color:#f92672">[</span><span style="color:#f92672">]</span> declaredMethods <span style="color:#f92672">=</span> clazz<span style="color:#f92672">.</span><span style="color:#a6e22e">getDeclaredMethods</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Method method <span style="color:#f92672">:</span> declaredMethods<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>method<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><p>获取类方法的内部结构</p>
+<ul>
+<li>Annotation相关</li>
+</ul>
+<blockquote>
+<p>get Annotation(Class annotationClass)</p>
+<p>getDeclaredAnnotations()</p>
+</blockquote>
+<ul>
+<li>
+<p>泛型相关</p>
+<blockquote>
+<p>获取父类泛型类型：Type getGenericSuperclass()</p>
+<p>泛型类型：ParameterizedType ()</p>
+<p>获取实际的泛型类型参数数组：getActualTypeArguments()</p>
+</blockquote>
+</li>
+<li>
+<p>类所在的包 Package getPackage()</p>
+</li>
+</ul>
+<h5 id="heading-3">动态代理</h5>
+
+                    
+                    <audio id="audio" loop="1" preload="auto" style="width: 100%;" controls="controls">
+                        <source type="audio/mpeg" src="">
+                        <a href=""></a>
+                    </audio>
+                </div>
+                <div class="comment-wrap">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relate">
+        <ul>
+            <h3 id="prev_next">
+                <em>相 关 文 章</em>
+                <span>
+                    <a href="javascript: window.scrollTo(0, 0);">
+                    返回顶部</a>
+                    
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E9%9B%86%E5%90%88/" rel="prev">上一篇</a>
+                    
+                    
+                        <a href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" rel="next">下一篇</a>
+                    
+                </span>
+            </h3>
+            
+            
+            
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            Java比较器</a>
+                            <p>Java比较器 Java会经常涉及对象数组的排序问题，就会涉及到对象之间的比较问题。 Java实现对象排...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            <img class="relateimg" src="/img/4.jpg" alt="Java比较器">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            Java8新特性</a>
+                            <p>Java8特性 Lambda表达式 Lambda 是一个匿名函数，我们可以把 Lambda 表达式理解为是一段可以 传递的代码（将代...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            <img class="relateimg" src="/img/2.jpg" alt="Java8新特性">
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E9%9B%86%E5%90%88/" title="Java集合">
+                            Java集合</a>
+                            <p>Java集合框架概述 面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象 的操作，就要对对象进...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E9%9B%86%E5%90%88/" title="Java集合">
+                            <img class="relateimg" src="/img/6.jpg" alt="Java集合">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            MYSQL语句</a>
+                            <p>MYSQL语句 创建数据 create database [数据库] default charset utf8; 查看数据库 show database; 删除数据库 drop database [数据库]; 查看表 show tables; 创建表 create...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            <img class="relateimg" src="/img/8.jpg" alt="MYSQL语句">
+                        </a>
+                    </li>
+                    
+                
+            
+        </ul>
+    </div>
+</div>
+<p style="text-align: center;">
+  <a style="color: inherit" target="_blank" href="https://github.com/honjun/hugo-theme-diaspora"></a>
+</p>
+
+<script>
+  var siteTitle = "繁华烟落";
+</script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/InsightSearch.js"></script>
+</body>
+</html>
+

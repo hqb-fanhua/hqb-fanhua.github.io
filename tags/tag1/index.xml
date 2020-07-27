@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>Java反射</title>
+      <link>https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/</link>
+      <pubDate>Thu, 11 Apr 2019 23:36:51 +0800</pubDate>
+      
+      <guid>https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/</guid>
+      <description>Java反射机制 反射机制概述 Reflection（反射）是被视为动态语言的关键，反射机制允许程序在执</description>
+    </item>
+    
+    <item>
       <title>千里之行始于足下</title>
       <link>https://hqb-fanhua.github.io/posts/%E5%8D%9A%E5%AE%A2%E7%9A%84%E5%A4%B4%E9%83%A8%E5%86%85%E5%AE%B9/</link>
       <pubDate>Thu, 11 Apr 2019 23:36:51 +0800</pubDate>

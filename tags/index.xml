@@ -6,10 +6,37 @@
     <description>Recent content in Tags on 繁华烟落</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 11 Apr 2019 23:36:51 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 23:23:34 +0800</lastBuildDate>
     
 	<atom:link href="https://hqb-fanhua.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>hugo</title>
+      <link></link>
+      <pubDate>Mon, 13 Apr 2020 23:23:34 +0800</pubDate>
+      
+      <guid></guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Java</title>
+      <link>https://hqb-fanhua.github.io/tags/Java/</link>
+      <pubDate>Mon, 13 Apr 2020 23:23:34 +0800</pubDate>
+      
+      <guid>https://hqb-fanhua.github.io/tags/Java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://hqb-fanhua.github.io/tags/Hugo/</link>
+      <pubDate>Thu, 11 Apr 2019 23:36:51 +0800</pubDate>
+      
+      <guid>https://hqb-fanhua.github.io/tags/Hugo/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>tag1</title>
@@ -26,15 +53,6 @@
       <pubDate>Thu, 11 Apr 2019 23:36:51 +0800</pubDate>
       
       <guid>https://hqb-fanhua.github.io/tags/tag2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://hqb-fanhua.github.io/tags/hugo/</link>
-      <pubDate>Wed, 13 Mar 2019 23:23:34 +0800</pubDate>
-      
-      <guid>https://hqb-fanhua.github.io/tags/hugo/</guid>
       <description></description>
     </item>
     

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html><head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="google" content="notranslate">
+  <title>Java集合 &middot; 繁华烟落</title>
+  <meta name="keywords" content="素锦, inspiration, customization, rainmeter, design, web, 壁纸, 设计, 收集, wallpaper, collection, jaku, icon">
+  <meta name="description" content="世界上每个角落都有人过着相似的人生">
+  <meta name="author" content="繁华">
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="/css/diaspora.css">
+  <link rel="stylesheet" href="/css/insight.css">
+  <link rel="stylesheet" href="/css/custom.css">
+</head><body class="loading">
+        <div id="loading"></div>
+				<div id="nav"></div>
+				<div class="nav-user"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+        <div class="bar">
+        </div>
+        <a class="icon-icon" href="javascript:history.back()">
+        </a>
+        <div title="播放/暂停" class="icon-play">
+        </div>
+        
+        <h3 class="subtitle" style="display: none;">
+        Java集合</h3>
+        <div class="social">
+            <div>
+                <div class="share">
+                    
+                </div>
+                <div id="qr"></div>
+            </div>
+        </div>
+        <div class="scrollbar" style="width: 1.1636%;"></div>
+    </div>
+    <div class="section">
+        <div class="article">
+            <div>
+                <h1 class="title">
+                Java集合</h1>
+                <div class="stuff">
+                    
+                    <span>April 11, 2019</span>
+                    <span>字数 7155</span>
+                    
+                    
+                </div>
+                <div class="content">
+                    <h4 id="java">Java集合框架概述</h4>
+<p>面向对象语言对事物的体现都是以对象的形式，为了方便对多个对象 的操作，就要对对象进行存储。另一方面，使用Array存储对象方面具有一些弊 端，而Java 集合就像一种容器，可以动态地把多个对象的引用放入容器中。Java集合类可以用于存储数量不等的多个对象，还可以保存具有映射关系的关联数组。</p>
+<h5 id="heading">数组在内存存储方面的特点</h5>
+<blockquote>
+<p>数组初始化，其长度就确定了</p>
+</blockquote>
+<blockquote>
+<p>数组的声明类型，决定了进行数组初始化的类型</p>
+</blockquote>
+<h5 id="heading-1">数组在存储数据方面的弊端</h5>
+<blockquote>
+<p>数组初始化后长度确定，不便于扩展</p>
+</blockquote>
+<blockquote>
+<p>数组中提供的属性和方法少，不方便进行删除，修改，插入操作，并且效率不高。无法直接获取存储元素的个数。</p>
+</blockquote>
+<blockquote>
+<p>数组存储的数据是有序重复的。</p>
+</blockquote>
+<h4 id="java-1">Java集合体系</h4>
+<p>集合分为Collection和Map两种体系</p>
+<p>Collection：单列数据，定义了存取一组对象的方法的集合</p>
+<blockquote>
+<p>|&mdash;Iterator</p>
+<p>​	  |&mdash;ListIterator</p>
+</blockquote>
+<blockquote>
+<p>|&mdash;List：元素有序、可重复的集合</p>
+<p>​	|&mdash;Vector</p>
+<p>​	|&mdash;ArrayList</p>
+<p>​	|&mdash;LinkedList</p>
+</blockquote>
+<blockquote>
+<p>|&mdash;Set：元素无序、不可重复的集合</p>
+<p>​	|&mdash;HashSet</p>
+<p>​		|&mdash;LinkedHashSet</p>
+<p>​	|&mdash;SortedSet</p>
+<p>​		|&mdash;TreeSet</p>
+</blockquote>
+<p>Map接口：双列数据，保存具有映射关系“key-value对”的集合</p>
+<blockquote>
+<p>|&mdash;HashTable</p>
+<p>​	|&mdash;Properties</p>
+</blockquote>
+<blockquote>
+<p>|&mdash;HashMap</p>
+<p>​	|&mdash;LinkedHashMap</p>
+</blockquote>
+<blockquote>
+<p>|&mdash;SortedMap</p>
+<p>​	|&mdash;TreeMap</p>
+</blockquote>
+<h4 id="collection">Collection接口方法</h4>
+<p>​     通过代码体现日常使用的Collection接口的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		Collection coll <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 1.add(Object e):将元素添加到集合coll中
+</span><span style="color:#75715e"></span>		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boy&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">,</span> 12<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 2.size():获取元素添加的个数
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">// 4
+</span><span style="color:#75715e"></span>
+		<span style="color:#75715e">// 3.addAll():将coll1集合中的元素添加到当前的集合中
+</span><span style="color:#75715e"></span>		Collection coll1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll1<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>456<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll1<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CC&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">addAll</span><span style="color:#f92672">(</span>coll1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">// 6
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 4.clear():清空集合的元素
+</span><span style="color:#75715e"></span>		 coll<span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 5.isEmpty():判断当前集合是否为空
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 6.contains(Object obj):判断当前集合中是否包含obj
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">boolean</span> contains <span style="color:#f92672">=</span> coll<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>contains<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">.</span><span style="color:#a6e22e">contains</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boy&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 7.containsAll(Collection coll1):判断形参coll1中的所有元素是否都存在于当前集合当中
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">.</span><span style="color:#a6e22e">containsAll</span><span style="color:#f92672">(</span>coll1<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 8.remove(Object obj):从当前集合中删除obj元素
+</span><span style="color:#75715e"></span>		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 9.removeAll(Collection coll1):从当前集合中移除coll1中的所有元素
+</span><span style="color:#75715e"></span>		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">removeAll</span><span style="color:#f92672">(</span>coll1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 10.retainAll(Collection coll1):获取当前元素和coll1集合元素的交集，并返回给当前集合
+</span><span style="color:#75715e"></span>		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">retainAll</span><span style="color:#f92672">(</span>coll1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 11.equals(Object obj):判断该当前集合和形参集合的元素是否相同
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>coll1<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    
+    	<span style="color:#75715e">// 12.hashCode():返回当前对象的哈希值
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>coll<span style="color:#f92672">.</span><span style="color:#a6e22e">hashCode</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		<span style="color:#75715e">// 13.集合 ----&gt; 数组 ：toArray()
+</span><span style="color:#75715e"></span>		Object<span style="color:#f92672">[</span><span style="color:#f92672">]</span> arr <span style="color:#f92672">=</span> coll<span style="color:#f92672">.</span><span style="color:#a6e22e">toArray</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> arr<span style="color:#f92672">.</span><span style="color:#a6e22e">length</span><span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>arr<span style="color:#f92672">[</span>i<span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+
+		<span style="color:#75715e">// 14.数组 ----&gt; 集合：调用Arrays.asList()
+</span><span style="color:#75715e"></span>		List<span style="color:#f92672">&lt;</span>String<span style="color:#f92672">&gt;</span> list <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> 
+                                          String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;CC&#34;</span> <span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="iterator">Iterator接口遍历集合元素</h4>
+<h5 id="iterator-1">Iterator概念</h5>
+<blockquote>
+<p>Iterator对象称为迭代器(设计模式的一种)，主要用于遍历 Collection 集合中的元素。</p>
+</blockquote>
+<blockquote>
+<p>GOF给迭代器模式的定义为：提供一种方法访问一个容器(container)对象中各个元 素，而又不需暴露该对象的内部细节。迭代器模式，就是为容器而生。类似于“公 交车上的售票员”、“火车上的乘务员”、“空姐”。</p>
+</blockquote>
+<blockquote>
+<p>Collection接口继承了java.lang.Iterable接口，该接口有一个iterator()方法，那么所 有实现了Collection接口的集合类都有一个iterator()方法，用以返回一个实现了 Iterator接口的对象。</p>
+</blockquote>
+<blockquote>
+<p>Iterator 仅用于遍历集合，Iterator 本身并不提供承装对象的能力。如果需要创建 Iterator 对象，则必须有一个被迭代的集合。</p>
+</blockquote>
+<blockquote>
+<p>集合对象每次调用iterator()方法都得到一个全新的迭代器对象，默认游标都在集合 的第一个元素之前。</p>
+</blockquote>
+<h5 id="iterator-2">Iterator接口方法</h5>
+<blockquote>
+<p>hashNext():判断是否还有下一个元素</p>
+</blockquote>
+<blockquote>
+<p>next():将指针下移，并且返回下移位置之前的元素</p>
+</blockquote>
+<blockquote>
+<p>remove():删除集合中的元素</p>
+</blockquote>
+<blockquote>
+<p>注意事项：在调用it.next()方法之前必须要调用it.hasNext()进行检测。若不调用，且 下一条记录无效，直接调用it.next()会抛出NoSuchElementException异常。</p>
+</blockquote>
+<p>使用iterator()方法遍历集合,删除元素</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test3</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		Collection coll <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Date<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> String<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boy&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		coll<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">,</span> 12<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+    
+		<span style="color:#75715e">//Iterator可以删除集合的元素，但是是遍历过程中通过迭代器对象的remove方法，
+</span><span style="color:#75715e"></span>        <span style="color:#75715e">//不是集合对象的remove方法。
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">//如果还未调用next()或在上一次调用 next 方法之后已经调用了 remove 方法，
+</span><span style="color:#75715e"></span>		<span style="color:#75715e">//再调用remove都会报IllegalStateException。
+</span><span style="color:#75715e"></span>		Iterator iterator <span style="color:#f92672">=</span> coll<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			Object object <span style="color:#f92672">=</span> iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boy&#34;</span><span style="color:#f92672">.</span><span style="color:#a6e22e">equals</span><span style="color:#f92672">(</span>object<span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+				<span style="color:#75715e">//remove():删除集合中的元素
+</span><span style="color:#75715e"></span>				iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span>
+		
+		iterator <span style="color:#f92672">=</span> coll<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="foreach-for">foreach 增强型for循环</h5>
+<blockquote>
+<p>Java 5.0 提供了 foreach 循环迭代访问 Collection和数组。</p>
+</blockquote>
+<blockquote>
+<p>遍历操作不需获取Collection或数组的长度，无需使用索引访问元素。</p>
+</blockquote>
+<blockquote>
+<p>遍历集合的底层调用Iterator完成操作。</p>
+</blockquote>
+<blockquote>
+<p>foreach还可以用来遍历数组。</p>
+</blockquote>
+<p>​    使用foreach遍历集合</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test4</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> String<span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span> <span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">,</span> <span style="color:#e6db74">&#34;CC&#34;</span> <span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+    	<span style="color:#75715e">//要遍历的元素类型 自定义元素名称:要遍历的结构名称
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>String s <span style="color:#f92672">:</span> arr<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>s<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+
+		<span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> arr1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#66d9ef">int</span><span style="color:#f92672">[</span><span style="color:#f92672">]</span> <span style="color:#f92672">{</span> 123<span style="color:#f92672">,</span> 456<span style="color:#f92672">,</span> 123<span style="color:#f92672">,</span> 567<span style="color:#f92672">,</span> 9<span style="color:#f92672">,</span> 7 <span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">:</span> arr1<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+
+</code></pre></div><h4 id="list">List接口</h4>
+<h5 id="list-1">List概念</h5>
+<blockquote>
+<p>鉴于Java中数组用来存储数据的局限性，我们通常使用List替代数组</p>
+</blockquote>
+<blockquote>
+<p>List集合类中元素有序、且可重复，集合中的每个元素都有其对应的顺序索引。</p>
+</blockquote>
+<blockquote>
+<p>List容器中的元素都对应一个整数型的序号记载其在容器中的位置，可以根据 序号存取容器中的元素。</p>
+</blockquote>
+<blockquote>
+<p>JDK API中List接口的实现类常用的有：ArrayList、LinkedList和Vector。</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">面试问题<span style="color:#960050;background-color:#1e0010">：</span>ArrayList<span style="color:#f92672">,</span>LinkedList<span style="color:#f92672">,</span>Vector三者的异同<span style="color:#960050;background-color:#1e0010">？</span>
+   同<span style="color:#960050;background-color:#1e0010">：</span>三个类都实现了List接口<span style="color:#960050;background-color:#1e0010">，</span>存储数据的特点相同<span style="color:#960050;background-color:#1e0010">：</span>存储有序的<span style="color:#960050;background-color:#1e0010">，</span>可重复的数据<span style="color:#960050;background-color:#1e0010">。</span>
+
+ 不同<span style="color:#960050;background-color:#1e0010">：</span>ArrayList<span style="color:#f92672">:</span>作为List主要的实现类<span style="color:#960050;background-color:#1e0010">，</span>线程是不安全的<span style="color:#960050;background-color:#1e0010">，</span>效率高<span style="color:#960050;background-color:#1e0010">；</span>底层使用Object<span style="color:#f92672">[</span><span style="color:#f92672">]</span>存储
+ 	  LinkedList<span style="color:#f92672">:</span>对于频繁的插入<span style="color:#960050;background-color:#1e0010">，</span>删除<span style="color:#960050;background-color:#1e0010">，</span>效率比ArrayList高<span style="color:#960050;background-color:#1e0010">；</span>底层使用双向链表存储<span style="color:#960050;background-color:#1e0010">。</span>
+ 	  Vector<span style="color:#f92672">:</span>作为List接口的古老实现类<span style="color:#960050;background-color:#1e0010">；</span>线程安全的<span style="color:#960050;background-color:#1e0010">，</span>效率低<span style="color:#960050;background-color:#1e0010">。</span>
+</code></pre></div><h5 id="arraylist">ArrayList源码分析</h5>
+<p>jdk 7.0情况下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList  arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> <span style="color:#75715e">//底层创建了长度是10的Object[]数组elementData
+</span><span style="color:#75715e"></span>arr<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>11<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">//此次添加导致底层的长度不够，则扩容，默认扩容1.5倍，并且将原来的数组复制到新的数组
+</span><span style="color:#75715e"></span>ArrayList arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> capacity<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">//开发建议使用带参数的构造器
+</span></code></pre></div><p>jdk 8.0情况下</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">ArrayList  arr <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">//底层Object[]初始化为{}，并没有添加长度为10的数据
+</span><span style="color:#75715e"></span>arr<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">//第一次添加的时候，底层才创建长度为10的数组
+</span></code></pre></div><p>小结：jdk 7.0 中的ArrayList对象的创建类似于单例模式的饿汉式，jdk 8.0 中的ArrayList对象的创建类似于单例的懒汉式，延迟了数组的创建，节省内存。</p>
+<h5 id="linkedlist">LinkedList源码分析</h5>
+<p>LinkedList：双向链表，内部没有声明数组，而是定义了Node类型的first和last， 用于记录首末元素同时，定义内部类Node，作为LinkedList中保存数据的基 本结构。</p>
+<p>Node除了保存数据，还定义了两个变量：</p>
+<blockquote>
+<p>prev变量记录前一个元素的位置</p>
+</blockquote>
+<blockquote>
+<p>next变量记录下一个元素的位置</p>
+</blockquote>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">LinkedList list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> LinkedList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">//内部声明了Node类型的first和last属性，默认值为null
+</span><span style="color:#75715e"></span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span><span style="color:#75715e">//将123封装到Node中，创建了Node对象
+</span></code></pre></div><h5 id="list-2">List接口常用方法</h5>
+<p>通过代码体现List接口日常使用的方法。</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+		
+		ArrayList list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>456<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boy&#34;</span><span style="color:#f92672">,</span>12<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//1.void add(int index,Object ele):在index位置插入ele元素
+</span><span style="color:#75715e"></span>		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span><span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//2.boolean addAll(int index,Collection eles):从index位置开始将eles中所有元素添加到集合
+</span><span style="color:#75715e"></span>		List asList <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>2<span style="color:#f92672">,</span>3<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">addAll</span><span style="color:#f92672">(</span>asList<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//3.Object get(int index):获取指定index位置的元素
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>1<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//4.int indexOf(Object obj):返回obj在当前集合中首次出现的位置
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">indexOf</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//5.int lastIndexOf(Object obj):返回obj在当前集合中末次出现的位置
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">lastIndexOf</span><span style="color:#f92672">(</span>456<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//6.Object remove(int index):移除指定index位置的元素，并返回次元素
+</span><span style="color:#75715e"></span>		list<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span>1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//7.Object set(int index,Object ele):设置指定index位置的元素为ele
+</span><span style="color:#75715e"></span>		list<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>555<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//8.List subList(int fromIndex,int toIndex):返回从fromIndex到toIndex的子集合
+</span><span style="color:#75715e"></span>		List subList <span style="color:#f92672">=</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">subList</span><span style="color:#f92672">(</span>1<span style="color:#f92672">,</span>4<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>subList<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><p>List集合遍历</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		ArrayList list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">&lt;</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>456<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		Iterator iterator <span style="color:#f92672">=</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Object object <span style="color:#f92672">:</span> list<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>object<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> 0<span style="color:#f92672">;</span> i <span style="color:#f92672">&lt;</span> list<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span> i<span style="color:#f92672">+</span><span style="color:#f92672">+</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>i<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="set">Set接口</h4>
+<h5 id="set-1">set概念</h5>
+<blockquote>
+<p>set接口存储无序的，不可重复的数据</p>
+</blockquote>
+<blockquote>
+<p>Set接口是Collection的子接口，set接口没有提供额外的方法</p>
+</blockquote>
+<blockquote>
+<p>Set 判断两个对象是否相同不是使用 == 运算符，而是根据 equals() 方法</p>
+</blockquote>
+<h5 id="hashset">子接口HashSet</h5>
+<blockquote>
+<p>无序性：不等于随机性。存储的数据在底层的数组中并非按照数组索引的顺序添加，而是根据数据的哈希值确定</p>
+</blockquote>
+<blockquote>
+<p>不可重复性：保证添加的元素按照equals()判断时，不能返回true,相同元素只能添加一个。</p>
+</blockquote>
+<blockquote>
+<p>HashSet 按 Hash 算法来存储集合中的元素，因此具有很好的存取、查找、删除 性能。</p>
+</blockquote>
+<p>HashSet的特点</p>
+<ul>
+<li>
+<p>不能保证元素的排列顺序</p>
+</li>
+<li>
+<p>HashSet 不是线程安全的</p>
+</li>
+<li>
+<p>集合元素可以是 null</p>
+</li>
+</ul>
+<p>HashSet 集合判断两个元素相等的标准</p>
+<blockquote>
+<p>两个对象通过 hashCode() 方法比较相 等，并且两个对象的 equals() 方法返回值也相等。</p>
+</blockquote>
+<blockquote>
+<p>对于存放在Set容器中的对象，对应的类一定要重写equals()和hashCode(Object obj)方法，以实现对象相等规则。即：“相等的对象必须具有相等的散列码”。</p>
+</blockquote>
+<p>HashSet添加元素的过程</p>
+<ul>
+<li>
+<p>向HashSet添加元素a，首先调用元素a所在的hashCode()方法，计算a的哈希值。</p>
+</li>
+<li>
+<p>哈希值会通过某种算法计算出在HashSet底层数组中的位置。</p>
+</li>
+<li>
+<p>该位置没有元素，则成功添加。</p>
+</li>
+<li>
+<p>若有元素，则比较两元素的Hash值，Hash值不同，添加成功。</p>
+</li>
+<li>
+<p>Hash值相同，调用a所在类的equals()方法，返回true，添加失败，返回false，添加成功。</p>
+</li>
+</ul>
+<p>若原有位置上已有元素，以链表形式存储</p>
+<p>jdk 7：元素a放到数组中，指向原来的元素</p>
+<p>jdk 8：原来的元素在数组中，指向元素a</p>
+<h5 id="linkedhashset">子接口LinkedHashSet</h5>
+<blockquote>
+<p>LinkedHashSet 是 HashSet 的子类</p>
+</blockquote>
+<blockquote>
+<p>LinkedHashSet 根据元素的 hashCode 值来决定元素的存储位置， 但它同时使用双向链表维护元素的次序，这使得元素看起来是以插入 顺序保存的</p>
+</blockquote>
+<blockquote>
+<p>LinkedHashSet插入性能略低于 HashSet，但在迭代访问 Set 里的全 部元素时有很好的性能。</p>
+</blockquote>
+<blockquote>
+<p>LinkedHashSet 不允许集合元素重复。</p>
+</blockquote>
+<h5 id="treeset">子接口TreeSet</h5>
+<blockquote>
+<p>TreeSet 是 SortedSet 接口的实现类，TreeSet 可以确保集合元素处于排序状态。</p>
+</blockquote>
+<blockquote>
+<p>TreeSet底层使用红黑树结构存储数据</p>
+</blockquote>
+<blockquote>
+<p>TreeSet 两种排序方法：自然排序和定制排序。默认情况下，TreeSet 采用自然排序。</p>
+</blockquote>
+<blockquote>
+<p>自然排序中，比较两个对象是否相同的标准为：CompareTo()返回0,不再是equals()</p>
+</blockquote>
+<blockquote>
+<p>定制排序中，比较两个对象是否相同的标准为：COmpare()返回0,不再是equals().</p>
+</blockquote>
+<p>使用自然排序实体类需要实现Comparable接口</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> <span style="color:#66d9ef">implements</span> Comparable<span style="color:#f92672">&lt;</span>Object<span style="color:#f92672">&gt;</span><span style="color:#f92672">{</span>
+	
+	<span style="color:#66d9ef">private</span> String name<span style="color:#f92672">;</span>
+	<span style="color:#66d9ef">private</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">;</span>
+	
+	
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">getName</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> name<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setName</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">getAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> age<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">setAge</span><span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> age<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Person</span><span style="color:#f92672">(</span>String name<span style="color:#f92672">,</span> <span style="color:#66d9ef">int</span> age<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">super</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span> <span style="color:#f92672">=</span> name<span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">age</span> <span style="color:#f92672">=</span> age<span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#a6e22e">Person</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">super</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">toString</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;Person [name=&#34;</span> <span style="color:#f92672">+</span> name <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;, age=&#34;</span> <span style="color:#f92672">+</span> age <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;]&#34;</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+	
+	<span style="color:#75715e">//按照姓名从小到大,按照年龄从小到大排序
+</span><span style="color:#75715e"></span>	<span style="color:#a6e22e">@Override</span>
+	<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compareTo</span><span style="color:#f92672">(</span>Object o<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>o <span style="color:#66d9ef">instanceof</span> Person<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			Person p <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span> o<span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">int</span> compare <span style="color:#f92672">=</span> <span style="color:#66d9ef">this</span><span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">.</span><span style="color:#a6e22e">compareTo</span><span style="color:#f92672">(</span>p<span style="color:#f92672">.</span><span style="color:#a6e22e">name</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>compare <span style="color:#f92672">!</span><span style="color:#f92672">=</span> 0<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+				<span style="color:#66d9ef">return</span> compare<span style="color:#f92672">;</span>
+			<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+                <span style="color:#75715e">//名字相同按照年龄排序
+</span><span style="color:#75715e"></span>				<span style="color:#66d9ef">return</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>age<span style="color:#f92672">,</span> p<span style="color:#f92672">.</span><span style="color:#a6e22e">age</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+			<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输入的类型不匹配&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+	
+<span style="color:#f92672">}</span>
+
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">{</span>
+		
+		TreeSet tree <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeSet<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">,</span>12<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boy&#34;</span><span style="color:#f92672">,</span>13<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jak&#34;</span><span style="color:#f92672">,</span>25<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jak&#34;</span><span style="color:#f92672">,</span>35<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		Iterator iterator <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><p>使用定制排序需要使用Comparator()方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		Comparator com <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			
+			<span style="color:#a6e22e">@Override</span>
+			<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>Object o1<span style="color:#f92672">,</span> Object o2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+				<span style="color:#66d9ef">if</span><span style="color:#f92672">(</span> o1 <span style="color:#66d9ef">instanceof</span> Person <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> o2 <span style="color:#66d9ef">instanceof</span> Person<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+					Person p1 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span> o1<span style="color:#f92672">;</span>
+					Person p2 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span> o2<span style="color:#f92672">;</span>
+                    <span style="color:#75715e">//按照年龄排序
+</span><span style="color:#75715e"></span>					<span style="color:#66d9ef">return</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>p1<span style="color:#f92672">.</span><span style="color:#a6e22e">getAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span>p2<span style="color:#f92672">.</span><span style="color:#a6e22e">getAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+				<span style="color:#f92672">}</span><span style="color:#66d9ef">else</span> <span style="color:#f92672">{</span>
+					<span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输入的数据类型不匹配&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+				<span style="color:#f92672">}</span>
+			<span style="color:#f92672">}</span>
+		<span style="color:#f92672">}</span><span style="color:#f92672">;</span>
+		
+		TreeSet tree <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeSet<span style="color:#f92672">(</span>com<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Tom&#34;</span><span style="color:#f92672">,</span>12<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Boy&#34;</span><span style="color:#f92672">,</span>26<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jak&#34;</span><span style="color:#f92672">,</span>25<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		tree<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jak&#34;</span><span style="color:#f92672">,</span>15<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		Iterator iterator <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div><h4 id="map">Map接口</h4>
+<h5 id="map-1">Map概念</h5>
+<ul>
+<li>
+<p>Map为双列数据，存储key-value对的数据  &mdash;&mdash;&gt;类似高中的函数</p>
+</li>
+<li>
+<p>Map 中的 key 和 value 都可以是任何引用类型的数据</p>
+</li>
+<li>
+<p>Map 中的 key 用Set来存放，不允许重复，即同一个 Map 对象所对应的类，须重写hashCode()和equals()方法</p>
+</li>
+<li>
+<p>常用String类作为Map的“键”</p>
+</li>
+<li>
+<p>key 和 value 之间存在单向一对一关系，即通过指定的 key 总能找到 唯一的、确定的 value</p>
+</li>
+<li>
+<p>Map接口的常用实现类：HashMap、TreeMap、LinkedHashMap和 Properties。其中，HashMap是 Map 接口使用频率最高的实现类</p>
+</li>
+</ul>
+<h5 id="mapkey-value">Map中key-value的特点</h5>
+<ul>
+<li>
+<p>Map中的key:无序不可重复的。使用Set存储数据。&mdash;-&gt;key所在的类要重写equals()方法和hashCode()方法。</p>
+</li>
+<li>
+<p>Map中的value：无序，可重复的。使用collection存储所有的value。 &mdash;&gt;value所在类要重写equals()方法。</p>
+</li>
+<li>
+<p>Map中的Entry对象:key-value构成一个entry对象，entry对象是无序的，不可重复的，使用Set存储数据。</p>
+</li>
+</ul>
+<h5 id="map-2">Map中的常用方法</h5>
+<p>使用代码体现Map日常使用的方法</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		
+		Map map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//1.Object put(Object key,Object value)：将指定key-value添加到(或修改)当前map对象中
+</span><span style="color:#75715e"></span>		map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">,</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>45<span style="color:#f92672">,</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">,</span>55<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//2.Object put(Object key,Object value)：对指定元素进行修改
+</span><span style="color:#75715e"></span>		map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">,</span>456<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>map<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		Map map1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		map1<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CC&#34;</span><span style="color:#f92672">,</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		map1<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;DD&#34;</span><span style="color:#f92672">,</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#75715e">//3.void putAll(Map m):将m中的所有key-value对存放到当前map中
+</span><span style="color:#75715e"></span>		map<span style="color:#f92672">.</span><span style="color:#a6e22e">putAll</span><span style="color:#f92672">(</span>map1<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>map<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//4.Object remove(Object key)：移除指定key的key-value对，并返回value
+</span><span style="color:#75715e"></span>		map<span style="color:#f92672">.</span><span style="color:#a6e22e">remove</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;CC&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>map<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//5.void clear()：清空当前map中的所有数据
+</span><span style="color:#75715e"></span>		map<span style="color:#f92672">.</span><span style="color:#a6e22e">clear</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>map<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//6.Object get(Object key)：获取指定key对应的value
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">get</span><span style="color:#f92672">(</span>45<span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//7.boolean containsKey(Object key)：是否包含指定的key
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">boolean</span> containsKey <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsKey</span><span style="color:#f92672">(</span>45<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>containsKey<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//8.boolean containsValue(Object value)：是否包含指定的value
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">boolean</span> containsValue <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">containsValue</span><span style="color:#f92672">(</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>containsValue<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//9.int size()：返回map中key-value对的个数
+</span><span style="color:#75715e"></span>		<span style="color:#66d9ef">int</span> size <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>size<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//10.boolean isEmpty()：判断当前map是否为空
+</span><span style="color:#75715e"></span>		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>map<span style="color:#f92672">.</span><span style="color:#a6e22e">isEmpty</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		
+	<span style="color:#f92672">}</span>
+</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test1</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		Map map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> HashMap<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;AA&#34;</span><span style="color:#f92672">,</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>45<span style="color:#f92672">,</span>123<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;BB&#34;</span><span style="color:#f92672">,</span>55<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//Set keySet()：返回所有key构成的Set集合
+</span><span style="color:#75715e"></span>		Set keySet <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">keySet</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		Iterator iterator <span style="color:#f92672">=</span> keySet<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>iterator<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#75715e">//Collection values()：返回所有value构成的Collection集合
+</span><span style="color:#75715e"></span>		Collection values <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">values</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">for</span> <span style="color:#f92672">(</span>Object object <span style="color:#f92672">:</span> values<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>object<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+		
+		<span style="color:#75715e">//Set entrySet()：返回所有key-value对构成的Set集合
+</span><span style="color:#75715e"></span>		Set entrySet <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		Iterator iterator2 <span style="color:#f92672">=</span> entrySet<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator2<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+			Object object <span style="color:#f92672">=</span> iterator2<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+			Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span>  entry <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">)</span>object<span style="color:#f92672">;</span>
+			System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h5 id="hashmap">HashMap子接口</h5>
+<ul>
+<li>作为Map的主要实现类，线程不安全，效率高，可以存储null的key和value。</li>
+<li>HashMap 判断两个 key 相等的标准是：两个 key 通过 equals() 方法返回 true， hashCode 值也相等。</li>
+<li>HashMap 判断两个 value相等的标准是：两个 value 通过 equals() 方法返回 true。</li>
+</ul>
+<p>HashMap底层原理的实现</p>
+<p>jdk 7情况下：HashMap是数组+链表结构(即为链地址法)</p>
+<blockquote>
+<p>HashMap map= new HashMap(); 实例化以后，底层创建了长度为16的一维数组Entry[] table。</p>
+</blockquote>
+<blockquote>
+<p>map.put(key1,value1); 调用key1所在类的hashCode()方法计算哈希值，哈希值经过计算后，得到在Entry中的存放位置。</p>
+</blockquote>
+<blockquote>
+<p>如果位置上没有元素。key1添加成功。</p>
+</blockquote>
+<blockquote>
+<p>如果位置上有元素（位置存在一个或多个数据，数据用链表存储），比较key1和已经存在的元素的哈希值。</p>
+<blockquote>
+<p>如果key1和已存在的元素的哈希值不同，则添加成功</p>
+<p>如果key1和已存在的元素的哈希值相同，继续比较。key1调用equals()方法。</p>
+<blockquote>
+<p>如果equals()返回false，key1-value1添加成功</p>
+<p>如果equals()返回true，使用value1替换value2</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>HashMap的默认扩容是扩容到原来的2倍，并将数据复制到新的扩容数组当中。</p>
+</blockquote>
+<p>jdk 8情况下:HashMap是数组+链表+红黑树实现。</p>
+<blockquote>
+<p>HashMap map= new HashMap();底层没有创建长度为16的数组。</p>
+</blockquote>
+<blockquote>
+<p>jdk 8底层的数组是：node[]，而不是Entry[]。</p>
+</blockquote>
+<blockquote>
+<p>map.put(key1,value1); 首次调用方法时，创建长度为16的数组。</p>
+</blockquote>
+<blockquote>
+<p>当数组的某一个索引位置上的元素以链表数据存在的元素个数  &gt; 8 并且当前的数组长度  &gt; 64时，此索引上的数据采用红黑树进行存储。</p>
+</blockquote>
+<p>HashMap源码中的重要常量</p>
+<ul>
+<li>
+<p>DEFAULT_INITIAL_CAPACITY : HashMap的默认容量，16</p>
+</li>
+<li>
+<p>DEFAULT_LOAD_FACTOR：HashMap的默认加载因子</p>
+</li>
+<li>
+<p>TREEIFY_THRESHOLD：Bucket中链表长度大于该默认值，转化为红黑树</p>
+</li>
+<li>
+<p>UNTREEIFY_THRESHOLD：Bucket中红黑树存储的Node小于该默认值，转化为链表</p>
+</li>
+<li>
+<p>loadFactor：填充因子</p>
+</li>
+<li>
+<p>threshold：扩容的临界值，=容量*填充因子</p>
+</li>
+</ul>
+<h5 id="linkedhashmap">LinkedHashMap子接口</h5>
+<ul>
+<li>
+<p>作为Map的古老实现类，线程安全，效率低，不可以存储null的key和value。</p>
+<p>HashMap中的内部类：Node</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Node</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">implements</span> Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+<span style="color:#66d9ef">final</span> <span style="color:#66d9ef">int</span> hash<span style="color:#f92672">;</span>
+<span style="color:#66d9ef">final</span> K key<span style="color:#f92672">;</span>
+V value<span style="color:#f92672">;</span>
+Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> next<span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>LinkedHashMap中的内部类：Entry</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Entry</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">extends</span> HashMap<span style="color:#f92672">.</span><span style="color:#a6e22e">Node</span><span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> <span style="color:#f92672">{</span>
+Entry<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> before<span style="color:#f92672">,</span> after<span style="color:#f92672">;</span>
+Entry<span style="color:#f92672">(</span><span style="color:#66d9ef">int</span> hash<span style="color:#f92672">,</span> K key<span style="color:#f92672">,</span> V value<span style="color:#f92672">,</span> Node<span style="color:#f92672">&lt;</span>K<span style="color:#f92672">,</span>V<span style="color:#f92672">&gt;</span> next<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+<span style="color:#66d9ef">super</span><span style="color:#f92672">(</span>hash<span style="color:#f92672">,</span> key<span style="color:#f92672">,</span> value<span style="color:#f92672">,</span> next<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
+<h5 id="treemap">TreeMap子接口</h5>
+<ul>
+<li>
+<p>按照添加的key-value对进行排序，实现排序遍历。底层使用红黑树。</p>
+</li>
+<li>
+<p>添加数据时要求key必须是由同一类创建的对象。排序时需要按照key进行排序。</p>
+<p>自然排序代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test3</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  		
+      TreeMap map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeMap<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  		
+      Person p1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">,</span>12<span style="color:#f92672">)</span><span style="color:#f92672">;</span> 
+      Person p2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;c&#34;</span><span style="color:#f92672">,</span>20<span style="color:#f92672">)</span><span style="color:#f92672">;</span> 
+      Person p3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">,</span>10<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  		
+      map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>p1<span style="color:#f92672">,</span> 98<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>p2<span style="color:#f92672">,</span> 88<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>p3<span style="color:#f92672">,</span> 100<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  		
+  		
+      Set entrySet <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      Iterator iterator2 <span style="color:#f92672">=</span> entrySet<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator2<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          Object object <span style="color:#f92672">=</span> iterator2<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span>  entry <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">)</span>object<span style="color:#f92672">;</span>
+          System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>定制排序代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test4</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  		
+      TreeMap map <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> TreeMap<span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Comparator<span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+  
+          <span style="color:#a6e22e">@Override</span>
+          <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>Object o1<span style="color:#f92672">,</span> Object o2<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+              <span style="color:#66d9ef">if</span><span style="color:#f92672">(</span>o1 <span style="color:#66d9ef">instanceof</span> Person <span style="color:#f92672">&amp;</span><span style="color:#f92672">&amp;</span> o2 <span style="color:#66d9ef">instanceof</span> Person<span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+                  Person p1 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span>o1<span style="color:#f92672">;</span>
+                  Person p2 <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Person<span style="color:#f92672">)</span>o2<span style="color:#f92672">;</span>
+                  <span style="color:#66d9ef">return</span> Integer<span style="color:#f92672">.</span><span style="color:#a6e22e">compare</span><span style="color:#f92672">(</span>p1<span style="color:#f92672">.</span><span style="color:#a6e22e">getAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">,</span> p2<span style="color:#f92672">.</span><span style="color:#a6e22e">getAge</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+              <span style="color:#f92672">}</span>
+              <span style="color:#66d9ef">throw</span> <span style="color:#66d9ef">new</span> RuntimeException<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;输入的数据类型不匹配&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          <span style="color:#f92672">}</span>
+      <span style="color:#f92672">}</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  		
+      Person p1 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;a&#34;</span><span style="color:#f92672">,</span>12<span style="color:#f92672">)</span><span style="color:#f92672">;</span> 
+      Person p2 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;c&#34;</span><span style="color:#f92672">,</span>20<span style="color:#f92672">)</span><span style="color:#f92672">;</span> 
+      Person p3 <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Person<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;b&#34;</span><span style="color:#f92672">,</span>10<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  		
+      map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>p1<span style="color:#f92672">,</span> 98<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>p2<span style="color:#f92672">,</span> 88<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      map<span style="color:#f92672">.</span><span style="color:#a6e22e">put</span><span style="color:#f92672">(</span>p3<span style="color:#f92672">,</span> 100<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+  		
+      Set entrySet <span style="color:#f92672">=</span> map<span style="color:#f92672">.</span><span style="color:#a6e22e">entrySet</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      Iterator iterator2 <span style="color:#f92672">=</span> entrySet<span style="color:#f92672">.</span><span style="color:#a6e22e">iterator</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#66d9ef">while</span><span style="color:#f92672">(</span>iterator2<span style="color:#f92672">.</span><span style="color:#a6e22e">hasNext</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+          Object object <span style="color:#f92672">=</span> iterator2<span style="color:#f92672">.</span><span style="color:#a6e22e">next</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+          Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span>  entry <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>Map<span style="color:#f92672">.</span><span style="color:#a6e22e">Entry</span><span style="color:#f92672">)</span>object<span style="color:#f92672">;</span>
+          System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>entry<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+      <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div></li>
+</ul>
+<h5 id="properties">Properties子接口</h5>
+<ul>
+<li>
+<p>Properties 类是 Hashtable 的子类，该对象用于处理属性文件</p>
+</li>
+<li>
+<p>由于属性文件里的 key、value 都是字符串类型，所以 Properties 里的 key 和 value 都是字符串类型</p>
+</li>
+<li>
+<p>存取数据时，建议使用setProperty(String key,String value)方法和 getProperty(String key)方法</p>
+</li>
+</ul>
+<p>使用Properties处理属性文件代码</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java">Properties pros <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Properties<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+pros<span style="color:#f92672">.</span><span style="color:#a6e22e">load</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> FileInputStream<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;jdbc.properties&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+String user <span style="color:#f92672">=</span> pros<span style="color:#f92672">.</span><span style="color:#a6e22e">getProperty</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;user&#34;</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>user<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+</code></pre></div><h5 id="collections">Collections工具类</h5>
+<ul>
+<li>
+<p>Collections 是一个操作 Set、List 和 Map 等集合的工具类</p>
+</li>
+<li>
+<p>Collections 中提供了一系列静态的方法对集合元素进行排序、查询和修改等操作， 还提供了对集合对象设置不可变、对集合对象实现同步控制等方法</p>
+</li>
+</ul>
+<p>Collections排序操作</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">test</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		List list <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> ArrayList<span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>0<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>45<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span><span style="color:#f92672">-</span>98<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>100<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		list<span style="color:#f92672">.</span><span style="color:#a6e22e">add</span><span style="color:#f92672">(</span>125<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//shuffle(List)：对 List 集合元素进行随机排序
+</span><span style="color:#75715e"></span>		Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">shuffle</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//reverse(List)：反转 List 中元素的顺序
+</span><span style="color:#75715e"></span>		Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">reverse</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//sort(List)：根据元素的自然顺序对指定 List 集合元素按升序排序
+</span><span style="color:#75715e"></span>		Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">sort</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		<span style="color:#75715e">//void copy(List dest,List src)：将src中的内容复制到dest中
+</span><span style="color:#75715e"></span>		List dest <span style="color:#f92672">=</span> Arrays<span style="color:#f92672">.</span><span style="color:#a6e22e">asList</span><span style="color:#f92672">(</span><span style="color:#66d9ef">new</span> Object<span style="color:#f92672">[</span>list<span style="color:#f92672">.</span><span style="color:#a6e22e">size</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span><span style="color:#f92672">]</span><span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		Collections<span style="color:#f92672">.</span><span style="color:#a6e22e">copy</span><span style="color:#f92672">(</span>dest<span style="color:#f92672">,</span> list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>dest<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+		
+		System<span style="color:#f92672">.</span><span style="color:#a6e22e">out</span><span style="color:#f92672">.</span><span style="color:#a6e22e">println</span><span style="color:#f92672">(</span>list<span style="color:#f92672">)</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+</code></pre></div>
+                    
+                    <audio id="audio" loop="1" preload="auto" style="width: 100%;" controls="controls">
+                        <source type="audio/mpeg" src="">
+                        <a href=""></a>
+                    </audio>
+                </div>
+                <div class="comment-wrap">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="relate">
+        <ul>
+            <h3 id="prev_next">
+                <em>相 关 文 章</em>
+                <span>
+                    <a href="javascript: window.scrollTo(0, 0);">
+                    返回顶部</a>
+                    
+                        <a href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" rel="prev">上一篇</a>
+                    
+                    
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/" rel="next">下一篇</a>
+                    
+                </span>
+            </h3>
+            
+            
+            
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            Java比较器</a>
+                            <p>Java比较器 Java会经常涉及对象数组的排序问题，就会涉及到对象之间的比较问题。 Java实现对象排...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E6%AF%94%E8%BE%83%E5%99%A8/" title="Java比较器">
+                            <img class="relateimg" src="/img/4.jpg" alt="Java比较器">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            Java8新特性</a>
+                            <p>Java8特性 Lambda表达式 Lambda 是一个匿名函数，我们可以把 Lambda 表达式理解为是一段可以 传递的代码（将代...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java8%E7%89%B9%E6%80%A7/" title="Java8新特性">
+                            <img class="relateimg" src="/img/2.jpg" alt="Java8新特性">
+                        </a>
+                    </li>
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/" title="Java反射">
+                            Java反射</a>
+                            <p>Java反射机制 反射机制概述 Reflection（反射）是被视为动态语言的关键，反射机制允许程序在执...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/Java%E5%8F%8D%E5%B0%84/" title="Java反射">
+                            <img class="relateimg" src="/img/5.jpg" alt="Java反射">
+                        </a>
+                    </li>
+                    
+                
+                    
+                
+                    
+                    <li>
+                        <div>
+                            <a class="relatea" href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            MYSQL语句</a>
+                            <p>MYSQL语句 创建数据 create database [数据库] default charset utf8; 查看数据库 show database; 删除数据库 drop database [数据库]; 查看表 show tables; 创建表 create...</p>
+                        </div>
+                        
+                        <a href="https://hqb-fanhua.github.io/posts/MYSQL%E8%AF%AD%E5%8F%A5/" title="MYSQL语句">
+                            <img class="relateimg" src="/img/8.jpg" alt="MYSQL语句">
+                        </a>
+                    </li>
+                    
+                
+            
+        </ul>
+    </div>
+</div>
+<p style="text-align: center;">
+  <a style="color: inherit" target="_blank" href="https://github.com/honjun/hugo-theme-diaspora"></a>
+</p>
+
+<script>
+  var siteTitle = "繁华烟落";
+</script>
+<script src="/js/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<script src="/js/custom.js"></script>
+<script src="/js/InsightSearch.js"></script>
+</body>
+</html>
+

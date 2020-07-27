@@ -6,10 +6,19 @@
     <description>Recent content in Categories on 繁华烟落</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 11 Apr 2019 23:36:51 +0800</lastBuildDate>
+    <lastBuildDate>Mon, 13 Apr 2020 23:23:34 +0800</lastBuildDate>
     
 	<atom:link href="https://hqb-fanhua.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>技术</title>
+      <link>https://hqb-fanhua.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Mon, 13 Apr 2020 23:23:34 +0800</pubDate>
+      
+      <guid>https://hqb-fanhua.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>123</title>
@@ -17,15 +26,6 @@
       <pubDate>Thu, 11 Apr 2019 23:36:51 +0800</pubDate>
       
       <guid>https://hqb-fanhua.github.io/categories/123/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>技术</title>
-      <link>https://hqb-fanhua.github.io/categories/%E6%8A%80%E6%9C%AF/</link>
-      <pubDate>Wed, 13 Mar 2019 23:23:34 +0800</pubDate>
-      
-      <guid>https://hqb-fanhua.github.io/categories/%E6%8A%80%E6%9C%AF/</guid>
       <description></description>
     </item>
     
